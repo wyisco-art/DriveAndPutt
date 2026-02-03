@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drive & Putt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap');
+      
+      body {
+        margin: 0;
+        overflow: hidden;
+        background-color: #1a202c;
+        font-family: 'Roboto', sans-serif;
+      }
+      
+      /* Retro font for game UI */
+      .font-retro {
+        font-family: 'Press Start 2P', cursive;
+      }
+
+      /* UI Animations */
+      @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      
+      @keyframes popIn {
+        0% { transform: scale(0.8); opacity: 0; }
+        60% { transform: scale(1.05); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+
+      @keyframes hudBump {
+        0% { transform: scale(1); color: #fff; }
+        50% { transform: scale(1.4); color: #facc15; }
+        100% { transform: scale(1); color: #fff; }
+      }
+
+      .animate-slide-up {
+        animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .animate-pop-in {
+        animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      }
+
+      .animate-hud-bump {
+        animation: hudBump 0.2s ease-out forwards;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
