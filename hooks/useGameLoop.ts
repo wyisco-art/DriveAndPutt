@@ -299,7 +299,18 @@ export const useGameLoop = (
                     if (hit) hitBallThisFrame = true;
                 }
 
-                // Walls
+                // Check water FIRST - if ball is in water, skip wall collisions and break
+                for (const water of level.water) {
+                    if (checkCircleRectCollision(ball, water)) {
+                        splashThisFrame = true;
+                        break;
+                    }
+                }
+
+                // If ball hit water, stop processing further substeps
+                if (splashThisFrame) break;
+
+                // Walls - only check if ball is NOT in water
                 const allWalls = [...level.walls];
                 for (const wall of allWalls) {
                     if (checkCircleRectCollision(car, wall)) {
@@ -315,13 +326,6 @@ export const useGameLoop = (
                         const prevVelY = ball.vel.y;
                         resolveCircleRectCollision(ball, wall);
                         if (Math.sqrt(prevVelX ** 2 + prevVelY ** 2) > 4) hitWallThisFrame = true;
-                    }
-                }
-
-                // Water
-                for (const water of level.water) {
-                    if (checkCircleRectCollision(ball, water)) {
-                        splashThisFrame = true;
                     }
                 }
             }
