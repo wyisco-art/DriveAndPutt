@@ -161,22 +161,22 @@ const App: React.FC = () => {
             <span className="text-[6px] text-white mt-0.5 font-retro drop-shadow-md">HOLE {levelIndex}</span>
           </div>
 
-          <div className="flex gap-2 bg-slate-900/40 backdrop-blur-sm px-2 py-1 rounded-none border border-slate-600/50 shadow-[1px_1px_0_rgba(0,0,0,0.25)]">
-            <div className="flex flex-col items-center min-w-[20px]">
-              <span className="text-[4px] text-slate-400 uppercase tracking-widest font-bold mb-0.5">Par</span>
-              <span className="text-[8px] font-bold font-retro text-white">{currentLevel.par}</span>
+          <div className="flex gap-4">
+            <div className="flex flex-col items-center justify-center w-10 h-10 bg-black/60 rounded-full border border-slate-700/50 shadow-lg backdrop-blur-none">
+              <span className="text-[4px] text-slate-400 uppercase tracking-widest font-bold -mb-0.5">Par</span>
+              <span className="text-[10px] font-bold font-retro text-white">{currentLevel.par}</span>
             </div>
-            <div className="w-px bg-slate-600/50"></div>
-            <div className="flex flex-col items-center min-w-[20px]">
-              <span className="text-[4px] text-slate-400 uppercase tracking-widest font-bold mb-0.5">Strokes</span>
-              <span className={`text-[8px] font-bold font-retro transition-colors ${strokes > currentLevel.par ? 'text-red-400' : 'text-white'} ${strokeBump ? 'animate-hud-bump' : ''}`}>
+
+            <div className={`flex flex-col items-center justify-center w-10 h-10 bg-black/60 rounded-full border border-slate-700/50 shadow-lg backdrop-blur-none transition-transform ${strokeBump ? 'scale-110' : ''}`}>
+              <span className="text-[4px] text-slate-400 uppercase tracking-widest font-bold -mb-0.5">Strokes</span>
+              <span className={`text-[10px] font-bold font-retro ${strokes > currentLevel.par ? 'text-red-400' : 'text-white'}`}>
                 {strokes}
               </span>
             </div>
-            <div className="w-px bg-slate-600/50"></div>
-            <div className="flex flex-col items-center min-w-[30px]">
-              <span className="text-[4px] text-slate-400 uppercase tracking-widest font-bold mb-0.5">Score</span>
-              <span className={`text-[8px] font-bold font-retro ${scoreDetails.colorClass}`}>
+
+            <div className="flex flex-col items-center justify-center w-10 h-10 bg-black/60 rounded-full border border-slate-700/50 shadow-lg backdrop-blur-none">
+              <span className="text-[4px] text-slate-400 uppercase tracking-widest font-bold -mb-0.5">Score</span>
+              <span className={`text-[10px] font-bold font-retro ${scoreDetails.colorClass}`}>
                 {scoreDetails.scoreText}
               </span>
             </div>
