@@ -30,3 +30,14 @@ export enum GameState {
     WON,
     LOST
 }
+
+export interface Level {
+    id: number;
+    name: string;
+    par: number;
+    walls: Rect[];
+    sandTraps: Rect[];
+    water: Rect[];
+    startPos: Vector;
+    holePos: Vector;
+}
